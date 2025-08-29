@@ -332,24 +332,25 @@
             localStorage.removeItem('dadosContrato');
         }, 1800000);
 
-        function downloadContrato() {
+       async function downloadContrato() {
             const contrato = document.getElementById("contrato");
 
             // Esconde os botões manualmente antes de gerar
             document.querySelectorAll(".no-print").forEach(el => el.style.display = "none");
 
             const opt = {
-                margin: 10,
+                margin: [10,10,10,10], // margem em mm
                 filename: 'Contrato_Vendas_Diretas.pdf',
-                image: { type: 'png', quality: 1 },   // qualidade máxima
-                html2canvas: { scale: 4, useCORS: true }, // aumenta a resolução
+                image: { type: 'png', quality: 1 },       // PNG sem perda
+                html2canvas: { scale: 4, useCORS: true, logging: true, scrollY: -window.scrollY }, // escala alta
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
-            html2pdf().set(opt).from(contrato).save().then(() => {
-                // Mostra os botões novamente
-                document.querySelectorAll(".no-print").forEach(el => el.style.display = "block");
-            });
+            // Gera o PDF em background
+            await html2pdf().set(opt).from(contrato).save();
+
+            // Restaura os botões
+            buttons.forEach(el => el.style.display = "block");
         }
         
     </script>
