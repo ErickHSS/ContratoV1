@@ -423,10 +423,10 @@
                     axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
                         .then(response => {
                         const data = response.data;
-                        $('#Endereco').val(data.street);
-                        $('#Bairro').val(data.neighborhood);
-                        $('#Cidade').val(data.city);
-                        $('#Estado').val(data.state);
+                       $('#txbEndereco').val(data.street);
+                        $('#txbBairro').val(data.neighborhood);
+                        $('#txbCidade').val(data.city);
+                        $('#txbEstado').val(data.state);
                         })
                         .catch(error => {
                         alert('CEP não encontrado ou inválido.');
@@ -454,7 +454,7 @@
                 Email: document.getElementById('txbEmail').value,
                 CPFCNPJ: document.getElementById('txbCPFCNPJ').value,
                 Inscricao: document.getElementById('txbInscricao').value,
-                CEP: document.getElementById('txbCEP').value,
+                CEP: document.getElementById('CEP').value,
                 Endereco: document.getElementById('txbEndereco').value,
                 Numero: document.getElementById('txbNumero').value,
                 Bairro: document.getElementById('txbBairro').value,
@@ -499,7 +499,7 @@
             // Lista de IDs dos campos obrigatórios
             const camposObrigatorios = [
                 'txbVendedor', 'txbCliente', 'txbRazaoSocial', 'telefone1',
-                'txbEmail', 'txbCPFCNPJ', 'txbCEP', 'txbEndereco', 'txbNumero',
+                'txbEmail', 'txbCPFCNPJ', 'CEP', 'txbEndereco', 'txbNumero',
                 'txbBairro', 'txbCidade', 'txbEstado', 'txbCategoria', 'txbDesconto',
                 'ddlModels', 'txbQtde', 'txbAno', 'txbModelo', 'txbCor',
                 'txbPrecoPublico', 'txbPrecoVenda', 'txbDataCompra', 
