@@ -338,11 +338,11 @@
             // Esconde os botões manualmente antes de gerar
             document.querySelectorAll(".no-print").forEach(el => el.style.display = "none");
 
-            const opt = {
-                margin: [10,10,10,10], // margem em mm
+             const opt = {
+                margin: 10, // margem em mm
                 filename: 'Contrato_Vendas_Diretas.pdf',
-                image: { type: 'png', quality: 1 },       // PNG sem perda
-                html2canvas: { scale: 4, useCORS: true, logging: true, scrollY: -window.scrollY }, // escala alta
+                image: { type: 'jpeg', quality: 0.95 }, // JPEG de alta qualidade
+                html2canvas: { scale: 3, useCORS: true, scrollY: -window.scrollY },
                 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
             };
 
