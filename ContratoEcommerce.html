@@ -185,7 +185,7 @@
                                                  <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-colunm">CEP</label>                                                        
-                                                        <input name="cep" type="text"id="CEP" class="mascCEP form-control" value="" size="10" maxlength="9"  placeholder="CEP" required/>
+                                                        <input name="txbCEP" type="text"id="txbCEP" class="mascCEP form-control" value="" size="10" maxlength="9"  placeholder="CEP" required/>
                                                         <button type="button" class="btn btn-primary mt-2" id="searchCep">Buscar Endereço</button>
                                                     </div>
                                                 </div>
@@ -418,7 +418,7 @@
     <script>   
         $(document).ready(function () {
                 $('#searchCep').on('click', function () {
-                    const cep = $('#CEP').val().trim();
+                   const cep = $('#txbCEP').val().replace(/\D/g, ''); // só números
                     if (cep) {
                     axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
                         .then(response => {
@@ -454,7 +454,7 @@
                 Email: document.getElementById('txbEmail').value,
                 CPFCNPJ: document.getElementById('txbCPFCNPJ').value,
                 Inscricao: document.getElementById('txbInscricao').value,
-                CEP: document.getElementById('CEP').value,
+                CEP: document.getElementById('txbCEP').value,
                 Endereco: document.getElementById('txbEndereco').value,
                 Numero: document.getElementById('txbNumero').value,
                 Bairro: document.getElementById('txbBairro').value,
@@ -499,7 +499,7 @@
             // Lista de IDs dos campos obrigatórios
             const camposObrigatorios = [
                 'txbVendedor', 'txbCliente', 'txbRazaoSocial', 'telefone1',
-                'txbEmail', 'txbCPFCNPJ', 'CEP', 'txbEndereco', 'txbNumero',
+                'txbEmail', 'txbCPFCNPJ', 'txbCEP', 'txbEndereco', 'txbNumero',
                 'txbBairro', 'txbCidade', 'txbEstado', 'txbCategoria', 'txbDesconto',
                 'ddlModels', 'txbQtde', 'txbAno', 'txbModelo', 'txbCor',
                 'txbPrecoPublico', 'txbPrecoVenda', 'txbDataCompra', 
