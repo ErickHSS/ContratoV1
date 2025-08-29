@@ -54,16 +54,13 @@
 <body class="d-flex flex-column h-100" id="contrato">
 
     <br />
-       <div class="no-print" style="text-align: center; margin: 20px;">
-    <button onclick="window.print()" 
-            style="background:#007bff;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;">
-        Imprimir
-    </button>
-    <button onclick="downloadContrato()" 
-            style="background:#28a745;color:white;padding:8px 15px;border:none;border-radius:5px;cursor:pointer;">
-        Download PDF
-    </button>
-</div>
+      <div  id="noprint" class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary" type="button" id="btImprimir" onclick="window.print()">Imprimir</button>
+                <!--input type="button" id="btImprimir" onclick="print()" value="Imprimir" /-->
+            </div>
+        </div>
+
     <br />
 
     <!-- Begin page content -->
