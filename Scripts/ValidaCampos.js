@@ -81,6 +81,28 @@ function moeda(a, e, r, t) {
     return !1
 }
 
+$(document).ready(function () {
+    $('#searchCep').on('click', function () {
+        const cep = $('#CEP').val().trim();
+        if (cep) {
+            axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+                .then(response => {
+                    const data = response.data;
+                    $('#Endereco').val(data.street);
+                    $('#Bairro').val(data.neighborhood);
+                    $('#Cidade').val(data.city);
+                    $('#Estado').val(data.state);
+                })
+                .catch(error => {
+                    alert('CEP não encontrado ou inválido.');
+                    console.error(error);
+                });
+        } else {
+            alert('Por favor, insira um CEP válido.');
+        }
+    });
+});
+
 //Valida CEP
 function limpa_formulário_cep() {
     //Limpa valores do formulário de cep.
