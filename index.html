@@ -6,9 +6,13 @@
     <title>Contrato Automax - Contrato Varejo</title>
 
     <link rel="stylesheet" href="/public/assets/css/bootstrap.css"/>
-    <link rel="stylesheet" href="/public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="/public/assets/vendor/perfect-scrollbar/perfect-scrollbar.css"/>
     <link rel="stylesheet" href="/public/assets/css/app.css"/>
     <link rel="shortcut icon" href="/public/assets/images/favicon.svg" type="image/x-icon"/>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
         function showContent() {
             element = document.getElementById("content");
@@ -27,8 +31,8 @@
         <div id="app">
             <div id="sidebar" class='active'>
                 <div class="sidebar-wrapper active">
-                    <div class="sidebar-header">
-                        <img src="#" class="w-100" alt="" srcset=""/>
+                      <div class="sidebar-header">
+                        <img src="/public/assets/images/AutomaxLogo.png" class="w-100" alt="" srcset=""/>
                     </div>
                     <div class="sidebar-menu">
                         <ul class="menu">
@@ -177,23 +181,24 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                          <div class="row">
                                                  <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-colunm">CEP</label>                                                        
-                                                        <input name="cep" type="text" id="txbCEP" class="mascCEP form-control" value="" size="10" maxlength="9" onblur="pesquisacep(this.value);" placeholder="CEP" required/>
+                                                        <input name="txbCEP" type="text"id="txbCEP" class="mascCEP form-control" value="" size="10" maxlength="9"  placeholder="CEP" required/>
+                                                        <button type="button" class="btn btn-primary mt-2" id="searchCep">Buscar Endereço</button>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-7 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Endereço</label>
-                                                        <input type="text" id="txbEndereco" class="form-control" name="email-id-column" placeholder="Endereço" required>
+                                                        <input type="text" id="txbEndereco" class="form-control" name="Endereco" placeholder="Endereço" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Número</label>
-                                                        <input type="text" id="txbNumero" class="form-control" name="email-id-column" placeholder="Número" required>
+                                                        <input type="text" id="txbNumero" class="form-control" name="Numero" placeholder="Número" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -201,28 +206,29 @@
                                                 <div class="col-md-4 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Bairro</label>
-                                                        <input type="text" id="txbBairro" class="form-control" name="email-id-column" placeholder="Bairro" required>
+                                                        <input type="text" id="txbBairro" class="form-control" name="Bairro" placeholder="Bairro" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-colunm">Complemento</label>
-                                                        <input type="text" id="txbComplemento" class="form-control" name="email-id-colum" placeholder="Complemento" />
+                                                        <input type="text" id="txbComplemento" class="form-control" name="Complemento" placeholder="Complemento" />
                                                     </div>
                                                 </div>                                               
                                                 <div class="col-md-3 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Cidade</label>
-                                                        <input type="text" id="txbCidade" class="form-control" name="email-id-column" placeholder="Cidade" required>
+                                                        <input type="text" id="txbCidade" class="form-control" name="Cidade" placeholder="Cidade" required>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-2 col-12">
                                                     <div class="form-group">
                                                         <label for="email-id-column">Estado</label>
-                                                        <input type="text" id="txbEstado" class="form-control" name="email-id-column" placeholder="Estado" required>
+                                                        <input type="text" id="txbEstado" class="form-control" name="Estado" placeholder="Estado" required>
                                                     </div>
                                                 </div>
                                             </div>
+                                            
                                             <div class="row">
                                                 <div class="col-md-6 col-12">
                                                     <div class="form-group">
@@ -411,8 +417,29 @@
     </form>
 
     <script>
-        function salvarDadosEGerarContrato() {
+           $(document).ready(function () {
+                $('#searchCep').on('click', function () {
+                   const cep = $('#txbCEP').val().replace(/\D/g, ''); // só números
+                    if (cep) {
+                    axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+                        .then(response => {
+                        const data = response.data;
+                       $('#txbEndereco').val(data.street);
+                        $('#txbBairro').val(data.neighborhood);
+                        $('#txbCidade').val(data.city);
+                        $('#txbEstado').val(data.state);
+                        })
+                        .catch(error => {
+                        alert('CEP não encontrado ou inválido.');
+                        console.error(error);
+                        });
+                    } else {
+                    alert('Por favor, insira um CEP válido.');
+                    }
+                });
+            });
 
+        function salvarDadosEGerarContrato() {
              // Verificar se todos os campos obrigatórios estão preenchidos
              if (!validarFormulario()) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
