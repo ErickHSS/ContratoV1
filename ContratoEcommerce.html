@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="/public/assets/vendors/perfect-scrollbar/perfect-scrollbar.css"/>
     <link rel="stylesheet" href="/public/assets/css/app.css"/>
     <link rel="shortcut icon" href="/public/assets/images/favicon.svg" type="image/x-icon"/>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="text/javascript">
         function showContent() {
             element = document.getElementById("content");
@@ -411,31 +415,30 @@
         </div>
     </form>
 
-    <script>
-        function salvarDadosEGerarContratoEcommerce() {
-
-            $(document).ready(function () {
+    <script>   
+        $(document).ready(function () {
                 $('#searchCep').on('click', function () {
                     const cep = $('#CEP').val().trim();
                     if (cep) {
-                        axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
-                            .then(response => {
-                                const data = response.data;
-                                $('#Endereco').val(data.street);
-                                $('#Bairro').val(data.neighborhood);
-                                $('#Cidade').val(data.city);
-                                $('#Estado').val(data.state);
-                            })
-                            .catch(error => {
-                                alert('CEP não encontrado ou inválido.');
-                                console.error(error);
-                            });
+                    axios.get(`https://brasilapi.com.br/api/cep/v2/${cep}`)
+                        .then(response => {
+                        const data = response.data;
+                        $('#Endereco').val(data.street);
+                        $('#Bairro').val(data.neighborhood);
+                        $('#Cidade').val(data.city);
+                        $('#Estado').val(data.state);
+                        })
+                        .catch(error => {
+                        alert('CEP não encontrado ou inválido.');
+                        console.error(error);
+                        });
                     } else {
-                        alert('Por favor, insira um CEP válido.');
+                    alert('Por favor, insira um CEP válido.');
                     }
                 });
-            });
+                });
 
+        function salvarDadosEGerarContratoEcommerce() {
              // Verificar se todos os campos obrigatórios estão preenchidos
              if (!validarFormulario()) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
