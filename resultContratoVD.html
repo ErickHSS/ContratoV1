@@ -20,6 +20,10 @@
     <link rel="manifest" href="/docs/5.1/assets/img/favicons/manifest.json">
     <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
+
+    <!-- Biblioteca html2pdf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
     <meta name="theme-color" content="#7952b3">
 
     <style>
@@ -47,12 +51,13 @@
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
 </head>
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-100" id="contrato">
 
     <br />
         <div  id="noprint" class="row">
                 <div class="col text-center">
                     <button class="btn btn-primary" type="button" id="btImprimir" onclick="window.print()">Imprimir</button>
+                    <button onclick="downloadContrato()">Download PDF</button>
                 <!--input type="button" id="btImprimir" onclick="print()" value="Imprimir" /-->
             </div>
         </div>
@@ -323,6 +328,23 @@
         setTimeout(() => {
             localStorage.removeItem('dadosContrato');
         }, 1800000);
+
+        function downloadContrato() {
+        // Seleciona a div/área do contrato
+        const contrato = document.getElementById("contrato");
+
+        // Configuração do PDF
+        const opt = {
+            margin:       10,
+            filename:     'Contrato_Vendas_Diretas.pdf',
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2 },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+        // Gera e baixa
+        html2pdf().set(opt).from(contrato).save();
+    }
         
     </script>
 </body>
