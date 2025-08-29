@@ -57,7 +57,7 @@
         <div  id="noprint" class="row">
                 <div class="col text-center">
                     <button class="btn btn-primary" type="button" id="btImprimir" onclick="window.print()">Imprimir</button>
-                    <button onclick="downloadContrato()">Download PDF</button>
+                    <button class="btn btn-primary" type="button" id="btImprimir"onclick="downloadContrato()">Download PDF</button>
                 <!--input type="button" id="btImprimir" onclick="print()" value="Imprimir" /-->
             </div>
         </div>
@@ -330,21 +330,24 @@
         }, 1800000);
 
         function downloadContrato() {
-        // Seleciona a div/área do contrato
-        const contrato = document.getElementById("contrato");
+            const contrato = document.getElementById("contrato");
 
-        // Configuração do PDF
-        const opt = {
-            margin:       10,
-            filename:     'Contrato_Vendas_Diretas.pdf',
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2 },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
+            // Esconde os botões manualmente antes de gerar
+            document.querySelectorAll(".no-print").forEach(el => el.style.display = "none");
 
-        // Gera e baixa
-        html2pdf().set(opt).from(contrato).save();
-    }
+            const opt = {
+                margin: 10,
+                filename: 'Contrato_Vendas_Diretas.pdf',
+                image: { type: 'jpeg', quality: 1 },   // qualidade máxima
+                html2canvas: { scale: 3, useCORS: true }, // aumenta a resolução
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(contrato).save().then(() => {
+                // Mostra os botões novamente
+                document.querySelectorAll(".no-print").forEach(el => el.style.display = "block");
+            });
+        }
         
     </script>
 </body>
