@@ -36,12 +36,27 @@
                 font-size: 3.5rem;
             }
         }
+
+        @media print {
+            #noprint {
+                visibility: hidden;
+            }
+        }
     </style>
 
     <!-- Custom styles for this template -->
     <link href="sticky-footer-navbar.css" rel="stylesheet">
 </head>
 <body class="d-flex flex-column h-100">
+
+    <br />
+        <div  id="noprint" class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary" type="button" id="btImprimir" onclick="window.print()">Imprimir</button>
+                <!--input type="button" id="btImprimir" onclick="print()" value="Imprimir" /-->
+            </div>
+        </div>
+    <br />
 
     <!-- Begin page content -->
     <form class="flex-shrink-0">
