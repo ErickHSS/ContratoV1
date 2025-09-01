@@ -311,7 +311,7 @@
               </div>
               <div class="row text-center mt-3">
                 <div class="col-12">
-                  <button type="button" class="btn btn-primary w-100">Gerar Contrato</button>
+                  <button type="button" id="btnContrato" class="btn btn-primary w-100" onclick="salvarDadosEGerarContratoVN()">Gerar Contrato</button>
                 </div>
               </div>
             </div>
@@ -351,7 +351,7 @@
                 });
             });
 
-        function salvarDadosEGerarContrato() {
+        function salvarDadosEGerarContratoVN() {
              // Verificar se todos os campos obrigatórios estão preenchidos
              if (!validarFormulario()) {
                 alert('Por favor, preencha todos os campos obrigatórios.');
