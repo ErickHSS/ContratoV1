@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="h-100">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contratos - Contrato Pedido Futuro</title>
+
+  <link href="../../Content/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @media print {
+      #noprint {
+        visibility: hidden;
+      }
+    }
+  </style>
+</head>
+
+<body class="d-flex flex-column h-100" id="contrato">
+  <br>
+  <div id="noprint" class="row">
+    <div class="col text-center">
+      <button class="btn btn-primary" type="button" onclick="window.print()">Imprimir</button>
+    </div>
+  </div>
+  <br>
+
+  <!-- Begin page content -->
+  <div>
+    <!-- Logo -->
+    <div class="text-center mt-2 mb-2">
+      <img src="../../Images/AutomaxLogo.png" class="img-fluid w-25 align-content-center" alt="Automax Logo">
+    </div>
+
+    <!-- Data -->
+    <div class="row">
+      <div class="col"></div>
+      <div class="text-end">
+        <p><strong>Belo Horizonte, <span id="lbDataAtual2">DataAtual</span></strong></p>
+      </div>
+    </div>
+
+    <br>
+    <p class="fs-5"><strong>CONTRATO DE COMPRA DE VEÍCULOS NOVOS</strong></p>
+
+    <!-- Cliente -->
+    <p><strong>1 - CLIENTE: </strong><span id="lbCliente">-</span></p>
+    <div class="row">
+      <div class="col">
+        <p>RG/INSCRIÇÃO ESTADUAL: <span id="lbRg">-</span></p>
+      </div>
+      <div class="col">
+        <p>CPF/CNPJ: <span id="lbCpf">-</span></p>
+      </div>
+    </div>
+    <p>Endereço: <span id="lbEndereco">-</span></p>
+    <div class="row">
+      <div class="col">
+        <p>Telefone: <span id="lbTelefone">-</span></p>
+      </div>
+      <div class="col">
+        <p>Email: <span id="lbEmail">-</span></p>
+      </div>
+    </div>
+    <p>Vendedor: <span id="lbVendedor">-</span></p>
+
+    <hr>
+
+    <!-- Veículo -->
+    <p><strong>2 - DESCRIÇÃO DO VEÍCULO</strong></p>
+    <p>Veículo: <span id="lbVeiculo">-</span></p>
+    <div class="row">
+      <div class="col">
+        <p>Ano/Modelo: <span id="lbAnoModelo">-</span></p>
+      </div>
+      <div class="col">
+        <p>Cor: <span id="lbCor">-</span></p>
+      </div>
+    </div>
+    <p>Opcional: <span id="lbOpc">-</span></p>
+    <p>Cortesia: <span id="lbCortesia">-</span></p>
+
+    <hr>
+
+    <!-- Prazo -->
+    <p><strong>3 - CARACTERÍSTICAS DO VEÍCULO INFORMADO</strong></p>
+    <p>3.1 - Comprador ciente da disponibilidade de uma unidade junto ao Fabricante...</p>
+    <p>
+      3.2 - Prazo previsto de entrega:
+      <span id="lbPrazo">-</span> acima de 90 dias, após comprovação dos pagamentos.
+    </p>
+
+    <div style="break-after: page"></div>
+
+    <p>3.3 - O(s) preço(s) do(s) veículo(s) estão sujeitos à alteração...</p>
+    <p>3.4 - Fica ciente o comprador que o fabricante poderá alterar o modelo...</p>
+    <p>3.5 - No preço vigente na data do faturamento...</p>
+    <p>3.6 - No caso de alteração no pedido do veículo...</p>
+    <p>3.7 - O comprador deverá pagar o preço vigente à época do faturamento sem o benefício concedido pelo Governo Federal.</p>
+
+    <p><strong>4 - CONDIÇÕES DE PAGAMENTO</strong></p>
+    <p>4.1 - Valor do Veículo: R$ <span id="lbValorVeiculo">-</span></p>
+    <p>
+      4.2 - Sinal veículo seminovo - Placa <span id="lbPlacaSeminovo">-</span>, avaliado em R$
+      <span id="lbValorSeminovo">-</span>, data avaliação
+      <span id="lbDataAvaliacao">-</span>
+    </p>
+    <p>4.3 - O Veículo seminovo descrito estará sujeito a nova avaliação...</p>
+    <p>
+      4.4 - O comprador está ciente que, em caso de desistência, não haverá devolução do veículo de placa
+      <span id="lbPlacaSeminovo2">-</span>. Será pago ao Sr.(a) <span id="lbCliente2">-</span>
+      o valor de R$ <span id="lbValorSeminovo2">-</span>, avaliação realizada em
+      <span id="lbDataAvaliacao2">-</span>.
+    </p>
+    <p>4.5 - Restante do pagamento do veículo 0KM será após emissão da Nota Fiscal...</p>
+
+    <p><strong>5 - CLÁUSULAS CONDIÇÕES DA VENDA</strong></p>
+    <p>5.1 - Após preenchimento e assinatura...</p>
+    <p>5.2 - Não aprovação da ficha cadastral constitui motivo para rescisão...</p>
+    <p>5.3 - A responsabilidade pelas informações cadastrais não cabe à vendedora...</p>
+    <p>5.4 - A vendedora não assume responsabilidade sobre indexadores...</p>
+    <p>5.5 - Quando o veículo transitar por solicitação do comprador...</p>
+    <p>5.6 - O veículo será entregue ao comprador ou pessoa autorizada...</p>
+    <p>5.7 - Em caso de desistência, o comprador pagará multa de 10%...</p>
+    <p>5.8 - O veículo dado como parte de pagamento poderá sofrer alteração no valor da avaliação...</p>
+    <p>5.9 - O comprador fará vistoria no veículo no ato da entrega.</p>
+
+    <div style="break-after: page"></div>
+
+    <p><strong>6 - Lei 13.111/2015</strong></p>
+    <p>6.1 - Valor dos Tributos: R$ <span id="lbtributo">-</span></p>
+    <p>
+      <input type="checkbox" id="cbGarantia"> Garantia de procedência.
+    </p>
+    <p>
+      <input type="checkbox" id="cbDebitoMultas"> Débito de multas/taxas anuais legalmente devidas:
+    </p>
+    <div class="row">
+      <div class="col">
+        <p>Multas: <span id="lbMultas">-</span></p>
+      </div>
+      <div class="col">
+        <p>Taxas Anuais: <span id="lbTaxas">-</span></p>
+      </div>
+    </div>
+    <p><input type="checkbox" id="cbDebitosImpostos"> Débitos de impostos.</p>
+    <p><input type="checkbox" id="cbAlienacao"> Alienação fiduciária ou reserva de domínio.</p>
+    <p><input type="checkbox" id="cbOutroRegistro"> Existência de outro registro que limita a circulação.</p>
+
+    <p><strong>7 - COMPARTILHAMENTO DE DATOS</strong></p>
+    <p>7.1 - Para cumprimento da obrigação contratual...</p>
+    <p>7.2 - Em decorrência do contrato com a montadora...</p>
+    <p>7.3 - A concessionária e parceiros manterão medidas de segurança...</p>
+    <p>7.4 - O Titular poderá acessar livremente os seus dados pessoais...</p>
+    <p>7.5 - Os dados pessoais serão mantidos durante todo o período contratual...</p>
+    <p>7.6 - O GRUPO AUTOMAX e a montadora poderão tratar os dados pessoais para estudos e comunicações...</p>
+    <p>7.7 - O prazo de armazenamento dos dados físicos será de 5 anos e digitais de 10 anos...</p>
+
+    <hr>
+    <p><strong>Belo Horizonte, <span id="lbDataAtual">DataAtual</span></strong></p>
+    <br>
+    <p><strong>De Acordo:</strong></p>
+    <br>
+    <p>Cliente:</p>
+    <hr>
+    <p>Vendedor:</p>
+    <hr>
+    <p>Gerente:</p>
+    <hr>
+  </div>
+
+  <script src="../../docs/5.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/js/feather-icons/feather.min.js"></script>
+  <script src="../../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/main.js"></script>
+
+  <script type="text/javascript">
+        /* Máscaras ER */
+        function mascara(o, f) {
+            v_obj = o
+            v_fun = f
+            setTimeout("execmascara()", 1)
+        }
+        function execmascara() {
+            v_obj.value = v_fun(v_obj.value)
+        }
+        function mtel(v) {
+            v = v.replace(/\D/g, ""); //Remove tudo o que não é dígito
+            v = v.replace(/^(\d{2})(\d)/g, "($1) $2"); //Coloca parênteses em volta dos dois primeiros dígitos
+            v = v.replace(/(\d)(\d{4})$/, "$1-$2"); //Coloca hífen entre o quarto e o quinto dígitos
+            return v;
+        }
+        function id(el) {
+            return document.getElementById(el);
+        }
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Recuperar os dados do localStorage
+            const dadosSalvos = localStorage.getItem('dadosContrato');
+            
+            if (!dadosSalvos) {
+                alert('Dados do contrato não encontrados. Por favor, preencha o formulário novamente.');
+                window.location.href = 'ContratoVN.html';
+                return;
+            }
+
+            try {
+                const formData = JSON.parse(dadosSalvos);
+
+                // Função auxiliar para formatar data
+                function formatarData(dataString) {
+                    if (!dataString) return ' - ';
+                    const data = new Date(dataString);
+                    return data.toLocaleDateString('pt-BR');
+                }
+
+                // Função auxiliar para formatar moeda
+                function formatarMoeda(valor) {
+                    if (!valor) return ' - ';
+                    return parseFloat(valor).toLocaleString('pt-BR', {
+                        style: 'currency',
+                        currency: 'BRL'
+                    });
+                }
+
+                // Preencher os dados do contrato
+                document.getElementById('lbDataAtual').textContent = formatarData(new Date());
+                document.getElementById('lbNomeCliente').textContent = formData.Cliente || ' - ';
+                document.getElementById('lbNomeCliente2').textContent = formData.Cliente || ' - ';
+                document.getElementById('lbCategoria').textContent = formData.Categoria || ' - ';
+                document.getElementById('lbDesconto').textContent = formData.Desconto || ' - ';
+                document.getElementById('lbVendedor').textContent = formData.Vendedor || ' - ';
+                document.getElementById('lbModelo').textContent = formData.Modelo || ' - ';
+                document.getElementById('lbQtd').textContent = formData.Qtde || ' - ';
+                document.getElementById('lbCor').textContent = formData.Cor || ' - ';
+                document.getElementById('lbAnoModelo').textContent = `${formData.Ano || ' - '}/${formData.ModeloAno || ' - '}`;
+                document.getElementById('lbOpcionais').textContent = formData.Opcional || ' - ';
+                document.getElementById('lbCortesia').textContent = formData.Cortesia || ' - ';
+                document.getElementById('lbValorTotal').textContent = formatarMoeda(formData.PrecoPublico);
+                document.getElementById('lbValorTotalDesconto').textContent = formatarMoeda(formData.PrecoVenda);
+                document.getElementById('lbEmpresa').textContent = formData.RazaoSocial || ' - ';
+                document.getElementById('lbCnpj').textContent = formatarCpfCnpj(formData.CPFCNPJ);
+                document.getElementById('lbTel').textContent = formData.Telefone || ' - ';
+                document.getElementById('lbEmail').textContent = formData.Email || ' - ';
+                document.getElementById('lbInscricaoEstadual').textContent = formData.Inscricao || ' - ';
+                document.getElementById('lbEndereco').textContent = 
+                    `${formData.Endereco || ' - '}, ${formData.Numero || ' - '}` + 
+                    (formData.Complemento ? ` - ${formData.Complemento}` : '');
+                document.getElementById('lbCidade').textContent = formData.Cidade || ' - ';
+                document.getElementById('lbEstado').textContent = formData.Estado || ' - ';
+                document.getElementById('lbDataCompra').textContent = formatarData(formData.DataCompra);
+                document.getElementById('lbConcessionaria').textContent = formData.Loja || ' - ';
+                document.getElementById('lbPrazo').textContent = formData.Prazo ? `${formData.Prazo} dias` : ' - ';
+                document.getElementById('lbFormaPagamento').textContent = formData.Pagamento || ' - ';
+                document.getElementById('lbPlacaSeminovo').textContent = formData.PlacaUsado || ' - ';
+                document.getElementById('lbValorSeminovo').textContent = formatarMoeda(formData.ValorAvaliacao);
+                document.getElementById('lbDataAvaliacao').textContent = formatarData(formData.DataAvaliacao);
+                document.getElementById('lbNomeResponsavel').textContent = formData.Cliente || ' - ';
+
+                // Limpar os dados do localStorage após uso
+                localStorage.removeItem('dadosContrato');
+
+            } catch (e) {
+                console.error('Erro ao processar dados do contrato:', e);
+                alert('Ocorreu um erro ao gerar o contrato. Por favor, tente novamente.');
+                window.location.href = 'ContratoVN.html';
+            }
+
+            // Função para formatar CPF/CNPJ
+            function formatarCpfCnpj(valor) {
+                if (!valor) return ' - ';
+                valor = valor.replace(/\D/g, '');
+                
+                if (valor.length === 11) { // CPF
+                    return valor.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+                } else if (valor.length === 14) { // CNPJ
+                    return valor.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+                }
+                return valor; // Retorna sem formatação se não for CPF/CNPJ válido
+            }
+        });
+
+        // Limpar após 30 min (3600000 ms) mesmo se não foram usados
+        setTimeout(() => {
+            localStorage.removeItem('dadosContrato');
+        }, 1800000);
+
+       async function downloadContrato() {
+            const contrato = document.getElementById("contrato");
+
+            // Esconde os botões manualmente antes de gerar
+            document.querySelectorAll(".no-print").forEach(el => el.style.display = "none");
+
+             const opt = {
+                margin: 10, // margem em mm
+                filename: 'Contrato_Vendas_Novos.pdf',
+                image: { type: 'jpeg', quality: 0.95 }, // JPEG de alta qualidade
+                html2canvas: { scale: 3, useCORS: true, scrollY: -window.scrollY },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Gera o PDF em background
+            await html2pdf().set(opt).from(contrato).save();
+
+            // Restaura os botões
+            buttons.forEach(el => el.style.display = "block");
+        }
+        
+    </script>
+
+
+</body>
+</html>
