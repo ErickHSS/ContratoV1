@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contrato Automax - Contrato Venda Diretas</title>
+
+    <link rel="stylesheet" href="/public/assets/css/bootstrap.css"/>
+    <link rel="stylesheet" href="/public/assets/vendor/perfect-scrollbar/perfect-scrollbar.css"/>
+    <link rel="stylesheet" href="/public/assets/css/app.css"/>
+    <link rel="shortcut icon" href="/public/assets/images/favicon.svg" type="image/x-icon"/>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        function showContent() {
+            element = document.getElementById("content");
+            check = document.getElementById("check");
+            if (check.checked) {
+                element.style.display = 'block';
+            }
+            else {
+                element.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+ <form id="Form1"></form>
+  <div id="app">
+    <div id="sidebar" class="active">
+      <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+          <img src="/public/assets/images/AutomaxLogo.png" class="w-100" alt="Logo Automax">
+        </div>
+          <div class="sidebar-menu">
+                        <ul class="menu">
+                            <li class='sidebar-title'>Menu</li>
+       
+                            <li class="sidebar-item active" id="menuContratoVD">
+                                <a href="index.html" class='sidebar-link'>
+                                    <i data-feather="file-text" width="20"></i>
+                                    <span>Contrato FIAT VD</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item" id="menuContratoE_commerce">
+                                <a href="ContratoEcommerce.html" class='sidebar-link'>
+                                     <i data-feather="file-text" width="20"></i>
+                                <span>Contrato PEUGEOT-CITROEN VD</span>
+                                </a>
+                            </li>
+                            <!--li class="sidebar-item has-sub">
+                                <a href="#" class="sidebar-link">
+                                    <i data-feather="settings" width="20"></i>
+                                    <span>Configurações</span>
+                                </a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="ChangePassword.aspx">Mudar Senha</a>
+                                    </li>
+                                    <li>
+                                        <a href="Usuarios.aspx" id="MenuAdm1">Usuários</a>
+                                    </li>
+                                    <li>
+                                        <a href="ChangePassword.aspx" id="MenuAdm2">Modelos</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="Login.aspx" class='sidebar-link'>
+                                    <i data-feather="log-out" width="20"></i>
+                                    <span>Sair</span>
+                                </a>
+                            </li><!-->
+                        </ul>
+                    </div>
+                    <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+                </div>
+            </div>
+
+    <div id="main">
+      <nav class="navbar navbar-header navbar-expand navbar-light">
+        <a class="sidebar-toggler" href="#"><span class="navbar-toggler-icon"></span></a>
+        <button class="btn navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </nav>
+
+      <div class="main-content container-fluid">
+        <div class="page-title">
+          <div class="row">
+            <div class="col-12 col-md-6 order-md-1 order-last">
+              <h3>Contrato Varejo</h3>
+              <p class="text-subtitle text-muted">Preencha os campos para continuar</p>
+            </div>
+            <div class="col-12 col-md-6 order-md-2 order-first">
+              <nav aria-label="breadcrumb" class="breadcrumb-header">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Contrato Automax</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Contrato Varejo</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+           <section id="multiple-column-form">
+          <!-- Vendedor -->
+          <div class="row match-height">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="txbVendedor">Vendedor</label>
+                      <input type="text" id="txbVendedor" class="form-control" placeholder="Vendedor">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dados do Cliente -->
+          <div class="row match-height">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header"><h4 class="card-title">Dados do Cliente</h4></div>
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="txbCliente">Cliente</label>
+                      <input type="text" id="txbCliente" class="form-control" placeholder="Cliente" required>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label for="txbRG">RG/Inscrição Estadual</label>
+                        <input type="text" id="txbRG" class="form-control" placeholder="RG" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="txbCPFCNPJ">CPF/CNPJ</label>
+                        <input type="text" id="txbCPFCNPJ" class="form-control" maxlength="14" placeholder="CPF/CNPJ" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="telefone1">Telefone</label>
+                        <input type="text" id="telefone1" class="form-control" maxlength="15" placeholder="Telefone" required>
+                      </div>
+                      <div class="col-md-6">
+                        <label for="txbEmail">Email</label>
+                        <input type="email" id="txbEmail" class="form-control" placeholder="Email" required>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbCEP">CEP</label>
+                        <input type="text" id="txbCEP" class="form-control" maxlength="9" placeholder="CEP" required>
+                      </div>
+                      <div class="col-md-5">
+                        <label for="txbEndereco">Endereço</label>
+                        <input type="text" id="txbEndereco" class="form-control" placeholder="Endereço" required>
+                      </div>
+                      <div class="col-md-4">
+                        <label for="txbNumero">Número</label>
+                        <input type="text" id="txbNumero" class="form-control" placeholder="Número" required>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbBairro">Bairro</label>
+                        <input type="text" id="txbBairro" class="form-control" placeholder="Bairro" required>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbComplemento">Complemento</label>
+                        <input type="text" id="txbComplemento" class="form-control" placeholder="Complemento">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbCidade">Cidade</label>
+                        <input type="text" id="txbCidade" class="form-control" placeholder="Cidade" required>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbEstado">Estado</label>
+                        <input type="text" id="txbEstado" class="form-control" placeholder="Estado" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dados do Veículo -->
+          <div class="row match-height">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header"><h4 class="card-title">Dados do Veículo</h4></div>
+                <div class="card-content">
+                  <div class="card-body">
+                    <label for="ddlModels">Veículo</label>
+                    <select id="ddlModels" class="form-control">
+                      <option>Selecione um modelo</option>
+                    </select>
+                    <div class="row mt-3">
+                      <div class="col-md-3">
+                        <label for="txbAno">Ano</label>
+                        <input type="number" id="txbAno" class="form-control" min="2020" max="2100" step="1" placeholder="Ano">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="txbModelo">Modelo</label>
+                        <input type="number" id="txbModelo" class="form-control" min="2020" max="2100" step="1" placeholder="Modelo">
+                      </div>
+                      <div class="col-md-6">
+                        <label for="txbCor">Cor</label>
+                        <input type="text" id="txbCor" class="form-control" placeholder="Cor" required>
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label for="txbOpcional">Opcionais</label>
+                        <input type="text" id="txbOpcional" class="form-control" placeholder="Opcionais separados por ;">
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label for="txbCortesia">Cortesias</label>
+                        <input type="text" id="txbCortesia" class="form-control" placeholder="Cortesias separadas por ;">
+                      </div>
+                      <div class="col-md-12 mt-3">
+                        <label for="txbPrazo">Prazo de Entrega</label>
+                        <input type="number" id="txbPrazo" class="form-control" value="90" placeholder="Prazo de Entrega" required>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dados de Pagamento -->
+          <div class="row match-height">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header"><h4 class="card-title">Dados do Pagamento</h4></div>
+                <div class="card-content">
+                  <div class="card-body">
+                    <div class="form-group">
+                      <label for="txbValorVeiculo">Valor do Veículo (R$)</label>
+                      <input type="text" id="txbValorVeiculo" class="form-control" placeholder="Valor do Veículo" required>
+                    </div>
+                    <div class="form-group">
+                      <label for="txbValorTributos">Valor dos Tributos (R$)</label>
+                      <input type="number" id="txbValorTributos" class="form-control" value="0" placeholder="Valor dos Tributos">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <label for="txbVeiculoSeminovo">Veículo Seminovo - Placa</label>
+                        <input type="text" id="txbVeiculoSeminovo" class="form-control" placeholder="Placa">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="txbAvaliacao">Avaliação (R$)</label>
+                        <input type="text" id="txbAvaliacao" class="form-control" placeholder="Avaliação">
+                      </div>
+                      <div class="col-md-4">
+                        <label for="txbDataAvaliacao">Data Avaliação</label>
+                        <input type="date" id="txbDataAvaliacao" class="form-control">
+                      </div>
+                    </div>
+                    <div class="form-group mt-3">
+                      <label for="txbLoja">Loja</label>
+                      <select id="txbLoja" class="form-control">
+                        <option>Automax - Raja Gabaglia, 2222 - Estoril, BH - MG</option>
+                        <option>Automax - Padre Pedro Evangelista, 44 - Coração Eucarístico, BH - MG</option>
+                        <option>Automax - Barão Homem de Melo, 4350 - Estoril, BH - MG</option>
+                      </select>
+                    </div>
+
+                    <div class="mt-4">
+                      <strong>Situação de regularidade do veículo quanto a:</strong>
+                      <div class="form-check mt-2">
+                        <input class="form-check-input" type="checkbox" id="CheckBox0">
+                        <label class="form-check-label" for="CheckBox0">Garantia de Procedência</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckBox1">
+                        <label class="form-check-label" for="CheckBox1">Débito de multas e taxas anuais</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckBox2">
+                        <label class="form-check-label" for="CheckBox2">Débitos de impostos</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckBox3">
+                        <label class="form-check-label" for="CheckBox3">Alienação fiduciária</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="CheckBox4">
+                        <label class="form-check-label" for="CheckBox4">Outro registro que limita circulação</label>
+                      </div>
+                    </div>
+
+                    <!-- Campos extras se multas -->
+                    <div id="divMultas" style="display:none;">
+                      <hr>
+                      <label for="txbMultas">Multas (R$)</label>
+                      <input type="text" id="txbMultas" class="form-control" placeholder="Multas">
+                      <label for="txbTaxaAnual" class="mt-2">Taxas Anuais (R$)</label>
+                      <input type="text" id="txbTaxaAnual" class="form-control" placeholder="Taxas anuais">
+                    </div>
+
+                    <!-- Campos extras se limitação -->
+                    <div id="divLimitacao" style="display:none;">
+                      <hr>
+                      <label for="txbLimitacao">Limitação ou empecilho</label>
+                      <input type="text" id="txbLimitacao" class="form-control" placeholder="Limitação ou empecilho">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row text-center mt-3">
+                <div class="col-12">
+                  <button type="button" class="btn btn-primary w-100">Gerar Contrato</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <footer>
+        <div class="footer clearfix mb-0 text-muted">
+          <div class="float-end"><p>2021 &copy; Maxmobility</p></div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../assets/js/feather-icons/feather.min.js"></script>
+  <script src="../assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/app.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script src="../Scripts/ValidaCampos.js"></script>
+</body>
+</html>
