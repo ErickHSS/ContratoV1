@@ -188,7 +188,8 @@
                 document.getElementById('lbNomeResponsavel').textContent = formData.Cliente || ' - ';
 
                 // Limpar os dados do localStorage após uso
-                localStorage.removeItem('dadosContrato');
+                localStorage.removeItem('dadosContratoEntrega');
+
 
             } catch (e) {
                 console.error('Erro ao processar dados do contrato:', e);
