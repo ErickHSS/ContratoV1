@@ -353,28 +353,28 @@
         }
 
         function validarFormulario() {
-            // Lista de IDs dos campos obrigatórios
+            // Lista de IDs dos campos obrigatórios que realmente existem no formulário
             const camposObrigatorios = [
-                'txbVendedor', 'txbCliente', 'txbRazaoSocial', 'telefone1',
-                'txbEmail', 'txbCPFCNPJ', 'txbCEP', 'txbEndereco', 'txbNumero',
-                'txbBairro', 'txbCidade', 'txbEstado',
-                'ddlModels', 'txbQtde', 'txbAno', 'txbModelo', 'txbCor',
-                'txbPrecoPublico', 'txbPrecoVenda', 'txbDataCompra', 'txbPrazo','txbLoja',
-                'txbNf', 'NomeTerceiro', 'CPFTerceiro', 'dtAvaliacao'
+                'txbCliente', 'txbCPFCliente', 'txbCEP', 'txbEndereco',
+                'txbNumero', 'txbBairro', 'txbCidade', 'txbEstado',
+                'ddlModels', 'txbAno', 'txbModelo', 'txbCor',
+                'txbNf', 'txbDataCompra', 'txbLoja',
+                'NomeTerceiro', 'CPFTerceiro'
             ];
 
-            /* Verificar cada campo obrigatório
+            // Verificar cada campo obrigatório
             for (const campoId of camposObrigatorios) {
                 const campo = document.getElementById(campoId);
                 if (!campo || !campo.value.trim()) {
+                    alert(`O campo ${campoId} é obrigatório.`);
                     campo.focus();
                     return false;
                 }
             }
-                */
 
             return true;
         }
+
         
         </script>
     <script src="/public/assets/js/feather-icons/feather.min.js"></script>
